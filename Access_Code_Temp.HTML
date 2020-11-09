@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AtlasViewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+        /* CLIENT-SPECIFIC STYLES */
+
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* Prevent WebKit and Windows mobile changing default text sizes */
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* Remove spacing
+between tables in Outlook 2007 and up */
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Allow smoother rendering of resized image in Internet Explorer */
+
+        /* RESET STYLES */
+
+        img {
+            height: auto;
+            text-decoration: none;
+            border: 0;
+            outline: none;
+            line-height: 100%;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-family: 'Open Sans', Helvetia Neue, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* iOS BLUE LINKS */
+
+        a[x-apple-data-detectors] {
+            text-decoration: none !important;
+            color: inherit !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .padding-copy {
+            padding: 8px 24px;
+            font-size: 15px;
+            color: #223040;
+        }
+
+        .grid .grid-copy div {
+            padding: 12px 12px 12px 0;
+            font-size: 15px;
+            margin: 0 16px 0 0;
+        }
+
+        .grid .grid-copy.label div {
+            padding: 12px 0 12px 12px;
+            font-weight: bold;
+            margin: 0 0 0 16px;
+        }
+
+        .legal-copy {
+            padding: 8px 24px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 0 0 0 100px;
+            font-size: 20px;
+            color: #ffffff;
+            line-height: 100px;
+            text-align: center;
+            background: #87C23E;
+        }
+
+        .circle-feeds {
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            font-size: 20px;
+            color: #ffffff;
+            line-height: 50px;
+            text-align: center;
+            background: #223040;
+            font-weight: bold;
+            box-shadow: -1px 6px 23px -4px rgba(0, 0, 0, 0.36);
+        }
+
+        .circle-top {
+            width: 150px;
+            height: 150px;
+            border-radius: 0 0 150px 0;
+            color: #ffffff;
+            line-height: 100px;
+            text-align: center;
+            background: #F4901E;
+            font-weight: bold;
+        }
+
+        .circle-bottom {
+            width: 150px;
+            height: 150px;
+            border-radius: 0 150px 0 0;
+            color: #ffffff;
+            line-height: 100px;
+            text-align: center;
+            background: #F4901E;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        .steps {
+            color: #223040;
+        }
+
+        /* MOBILE STYLES */
+
+        @media screen and (max-width: 525px) {
+
+            /* ALLOWS FOR FLUID TABLES */
+            .wrapper {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+            .mobile-hide {
+                display: none !important;
+            }
+
+            .img-max {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            /*
+FULL-WIDTH TABLES */
+            .responsive-table {
+                width: 100% !important;
+            }
+
+            /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+            .padding-copy,
+            .legal-copy {
+                padding: 8px 5% 8px 5% !important;
+            }
+        }
+
+        /* ANDROID CENTER FIX */
+
+        div[style*="margin: 16px 0;"] {
+            margin: 0 !important;
+        }
+    </style>
+</head>
+
+<body style="margin: 0 !important; padding: 0 !important; background-color:#E0E0E0;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="fbackground-color: #f6f6f6;">
+        <tr>
+            <!-- HEADER -->
+            <td bgcolor="#E0E0E0" align="center">
+                <!--[if (gte mso 9)|(IE)]>
+                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                  <tr>
+                  <td align="center" valign="top" width="600">
+                  <![endif]-->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 650px; height: 108px; "
+                    class="wrapper">
+                    <tr>
+                        <td align="left" valign="top" class="logo" bgcolor="#F4F4F4"
+                            style="box-shadow: -1px 6px 23px -4px rgba(0,0,0,0.36);">
+                            <a href="https://atlas.hcpci.com/img/email/new-logo-dark-email.png" target="_blank">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuNCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA2MTIgMTQ0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MTIgMTQ0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0YyOEYyMDt9Cgkuc3Qxe2ZpbGw6Izg0QkU0MTt9Cgkuc3Qye2ZpbGw6IzIyMzI0MTt9Cgkuc3Qze2ZpbGw6I0Q4NTc1Nzt9Cjwvc3R5bGU+CjxnPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTY5LDUwLjhsMjUuMy0yNS4zYy0xNC45LTUuOS0zMi4xLTQuMy00NS44LDQuOEw2OSw1MC44eiIvPgoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTU0LjksNjQuOUwzNC40LDQ0LjRjLTkuMSwxMy43LTEwLjcsMzAuOS00LjgsNDUuOEw1NC45LDY0Ljl6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTE3LjgsOTkuNmMxMi45LTE5LjQsMTAuNy00NS44LTYuNC02Mi45TDgzLjIsNjQuOUwxMTcuOCw5OS42eiIvPgoJPHBhdGggY2xhc3M9InN0MyIgZD0iTTY5LDc5LjFsLTI4LjMsMjguM2MxNy4xLDE3LjEsNDMuNSwxOS4yLDYyLjksNi40TDY5LDc5LjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTc2LjgsNjEuN2MyLjctMi40LDUuNi00LjEsOC45LTUuMmMzLjItMS4xLDYuNy0xLjcsMTAuNC0xLjdjMi43LDAsNS4xLDAuNCw3LjIsMS4zYzIuMSwwLjksNCwyLjEsNS40LDMuNgoJCWMxLjUsMS41LDIuNiwzLjQsMy40LDUuNXMxLjIsNC40LDEuMiw3djI3LjVoLTZjLTEuMiwwLTIuMi0wLjItMi44LTAuNXMtMS4yLTEtMS42LTIuMWwtMC45LTIuNGMtMS4xLDAuOS0yLjIsMS44LTMuMiwyLjUKCQljLTEsMC43LTIuMSwxLjMtMy4yLDEuOGMtMS4xLDAuNS0yLjMsMC45LTMuNSwxLjFzLTIuNiwwLjQtNC4xLDAuNGMtMiwwLTMuOC0wLjMtNS41LTAuOGMtMS42LTAuNS0zLTEuMy00LjItMi4zCgkJYy0xLjEtMS0yLTIuMy0yLjctMy44Yy0wLjYtMS41LTAuOS0zLjMtMC45LTUuMmMwLTEuNiwwLjQtMy4yLDEuMi00LjhjMC44LTEuNiwyLjItMy4xLDQuMS00LjVjMi0xLjMsNC42LTIuNSw3LjktMy40CgkJYzMuMy0wLjksNy41LTEuNCwxMi41LTEuNXYtMS45YzAtMi42LTAuNS00LjQtMS42LTUuNnMtMi42LTEuNy00LjUtMS43Yy0xLjYsMC0yLjgsMC4yLTMuOCwwLjVjLTEsMC4zLTEuOSwwLjctMi43LDEuMQoJCWMtMC44LDAuNC0xLjUsMC44LTIuMywxLjFjLTAuNywwLjMtMS42LDAuNS0yLjYsMC41Yy0wLjksMC0xLjctMC4yLTIuMy0wLjdjLTAuNi0wLjUtMS4xLTEtMS41LTEuNkwxNzYuOCw2MS43eiBNMjAwLjUsODEuNwoJCWMtMi42LDAuMS00LjgsMC4zLTYuNSwwLjdjLTEuNywwLjMtMywwLjgtNCwxLjNjLTEsMC41LTEuNywxLjEtMi4xLDEuN3MtMC42LDEuNC0wLjYsMi4xYzAsMS41LDAuNCwyLjYsMS4yLDMuMgoJCWMwLjgsMC42LDIsMC45LDMuNiwwLjljMS43LDAsMy4yLTAuMyw0LjUtMC45YzEuMy0wLjYsMi42LTEuNiwzLjktMi45VjgxLjd6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjM2LjgsMTAwLjNjLTIuMSwwLTMuOS0wLjMtNS41LTAuOWMtMS42LTAuNi0yLjktMS41LTQtMi42Yy0xLjEtMS4xLTEuOS0yLjUtMi41LTQuMQoJCWMtMC42LTEuNi0wLjktMy40LTAuOS01LjNWNjQuN2gtMy43Yy0wLjcsMC0xLjMtMC4yLTEuNy0wLjdjLTAuNS0wLjQtMC43LTEuMS0wLjctMS45di01LjFsNy0xLjRsMi42LTEwLjhjMC4zLTEuNCwxLjMtMiwyLjktMgoJCWg2Ljl2MTIuOUgyNDh2OWgtMTAuOXYyMS45YzAsMSwwLjIsMS45LDAuNywyLjVzMS4yLDEsMi4xLDFjMC41LDAsMC45LDAsMS4yLTAuMXMwLjYtMC4yLDAuOS0wLjNjMC4yLTAuMSwwLjUtMC4yLDAuNy0wLjMKCQlzMC41LTAuMSwwLjctMC4xYzAuNCwwLDAuNywwLjEsMSwwLjNjMC4yLDAuMiwwLjUsMC41LDAuNywwLjlsNCw2LjJjLTEuNywxLjMtMy42LDIuMi01LjcsMi45UzIzOS4xLDEwMC4zLDIzNi44LDEwMC4zeiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTI2Ni44LDM2djYzLjZoLTEzLjJWMzZIMjY2Ljh6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjc0LjgsNjEuN2MyLjctMi40LDUuNi00LjEsOC45LTUuMmMzLjItMS4xLDYuNy0xLjcsMTAuNC0xLjdjMi43LDAsNS4xLDAuNCw3LjIsMS4zYzIuMSwwLjksNCwyLjEsNS40LDMuNgoJCWMxLjUsMS41LDIuNiwzLjQsMy40LDUuNXMxLjIsNC40LDEuMiw3djI3LjVoLTZjLTEuMiwwLTIuMi0wLjItMi44LTAuNXMtMS4yLTEtMS42LTIuMWwtMC45LTIuNGMtMS4xLDAuOS0yLjIsMS44LTMuMiwyLjUKCQljLTEsMC43LTIuMSwxLjMtMy4yLDEuOGMtMS4xLDAuNS0yLjMsMC45LTMuNSwxLjFzLTIuNiwwLjQtNC4xLDAuNGMtMiwwLTMuOC0wLjMtNS41LTAuOGMtMS42LTAuNS0zLTEuMy00LjItMi4zCgkJYy0xLjEtMS0yLTIuMy0yLjctMy44Yy0wLjYtMS41LTAuOS0zLjMtMC45LTUuMmMwLTEuNiwwLjQtMy4yLDEuMi00LjhjMC44LTEuNiwyLjItMy4xLDQuMS00LjVjMi0xLjMsNC42LTIuNSw3LjktMy40CgkJYzMuMy0wLjksNy41LTEuNCwxMi41LTEuNXYtMS45YzAtMi42LTAuNS00LjQtMS42LTUuNnMtMi42LTEuNy00LjUtMS43Yy0xLjYsMC0yLjgsMC4yLTMuOCwwLjVjLTEsMC4zLTEuOSwwLjctMi43LDEuMQoJCWMtMC44LDAuNC0xLjUsMC44LTIuMywxLjFjLTAuNywwLjMtMS42LDAuNS0yLjYsMC41Yy0wLjksMC0xLjctMC4yLTIuMy0wLjdjLTAuNi0wLjUtMS4xLTEtMS41LTEuNkwyNzQuOCw2MS43eiBNMjk4LjUsODEuNwoJCWMtMi42LDAuMS00LjgsMC4zLTYuNSwwLjdjLTEuNywwLjMtMywwLjgtNCwxLjNjLTEsMC41LTEuNywxLjEtMi4xLDEuN3MtMC42LDEuNC0wLjYsMi4xYzAsMS41LDAuNCwyLjYsMS4yLDMuMgoJCWMwLjgsMC42LDIsMC45LDMuNiwwLjljMS43LDAsMy4yLTAuMyw0LjUtMC45YzEuMy0wLjYsMi42LTEuNiwzLjktMi45VjgxLjd6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMzQ3LjgsNjUuMmMtMC4zLDAuNS0wLjcsMC45LTEuMSwxLjFjLTAuNCwwLjItMC45LDAuMy0xLjUsMC4zYy0wLjYsMC0xLjItMC4xLTEuOS0wLjQKCQljLTAuNi0wLjMtMS4zLTAuNi0yLTAuOWMtMC43LTAuMy0xLjUtMC42LTIuNC0wLjljLTAuOS0wLjMtMS45LTAuNC0zLjEtMC40Yy0xLjcsMC0zLDAuMy0zLjgsMXMtMS4zLDEuNS0xLjMsMi43CgkJYzAsMC44LDAuMywxLjUsMC45LDJjMC42LDAuNSwxLjQsMSwyLjMsMS40YzEsMC40LDIuMSwwLjgsMy4zLDEuMmMxLjIsMC40LDIuNSwwLjgsMy43LDEuMnMyLjUsMSwzLjcsMS42YzEuMiwwLjYsMi4zLDEuNCwzLjMsMi4zCgkJczEuNywyLDIuMywzLjNjMC42LDEuMywwLjksMi44LDAuOSw0LjZjMCwyLjItMC40LDQuMi0xLjIsNnMtMiwzLjQtMy41LDQuOHMtMy41LDIuNC01LjgsMy4xYy0yLjMsMC43LTUsMS4xLTgsMS4xCgkJYy0xLjUsMC0zLTAuMS00LjUtMC40Yy0xLjUtMC4zLTMtMC43LTQuNC0xLjFjLTEuNC0wLjUtMi43LTEuMS0zLjktMS43Yy0xLjItMC43LTIuMi0xLjQtMy4xLTIuMWwzLjEtNC44YzAuMy0wLjYsMC44LTEsMS4zLTEuMwoJCXMxLjItMC41LDItMC41YzAuOCwwLDEuNSwwLjIsMi4xLDAuNWMwLjYsMC4zLDEuMywwLjcsMiwxLjFjMC43LDAuNCwxLjUsMC44LDIuNSwxLjFzMi4xLDAuNSwzLjYsMC41YzEsMCwxLjktMC4xLDIuNi0wLjMKCQljMC43LTAuMiwxLjMtMC41LDEuNy0wLjljMC40LTAuNCwwLjctMC44LDAuOS0xLjJjMC4yLTAuNSwwLjMtMC45LDAuMy0xLjRjMC0wLjktMC4zLTEuNi0wLjktMi4yYy0wLjYtMC42LTEuNC0xLjEtMi4zLTEuNQoJCXMtMi4xLTAuOC0zLjMtMS4xYy0xLjItMC40LTIuNS0wLjgtMy44LTEuMnMtMi41LTEtMy44LTEuNmMtMS4yLTAuNi0yLjMtMS40LTMuMy0yLjRjLTEtMS0xLjctMi4yLTIuMy0zLjYKCQljLTAuNi0xLjQtMC45LTMuMS0wLjktNS4xYzAtMS45LDAuNC0zLjYsMS4xLTUuM2MwLjctMS43LDEuOC0zLjIsMy4zLTQuNGMxLjQtMS4zLDMuMy0yLjMsNS40LTNjMi4yLTAuOCw0LjctMS4xLDcuNy0xLjEKCQljMS42LDAsMy4xLDAuMSw0LjYsMC40YzEuNSwwLjMsMi45LDAuNyw0LjIsMS4yYzEuMywwLjUsMi41LDEuMSwzLjYsMS44YzEuMSwwLjcsMiwxLjUsMi44LDIuM0wzNDcuOCw2NS4yeiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTM5NS4yLDU2LjZsLTIxLjYsNDMuMWgtNi4zbC0xMS4xLTQzLjFoNi4xYzAuNiwwLDEsMC4yLDEuNCwwLjVjMC4zLDAuMywwLjYsMC43LDAuNywxLjFsNi40LDI3LjcKCQljMC4yLDEuMSwwLjMsMi4xLDAuNCwzLjJjMC4xLDEsMC4yLDIuMSwwLjMsMy4yYzAuMy0xLDAuNy0yLjEsMS0zLjFjMC40LTEsMC44LTIuMSwxLjMtMy4yTDM4Nyw1OC4yYzAuMi0wLjUsMC41LTAuOCwwLjktMS4xCgkJYzAuNC0wLjMsMC45LTAuNCwxLjQtMC40SDM5NS4yeiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTQwOS40LDU2LjZsLTUuMiw0My4xaC03LjRsNS4yLTQzLjFINDA5LjR6IE00MTIuMyw0My4xYzAsMC43LTAuMSwxLjQtMC40LDIuMWMtMC4zLDAuNi0wLjcsMS4yLTEuMiwxLjcKCQljLTAuNSwwLjUtMS4xLDAuOS0xLjcsMS4yYy0wLjYsMC4zLTEuMywwLjQtMiwwLjRjLTAuNywwLTEuMy0wLjEtMS45LTAuNGMtMC42LTAuMy0xLjItMC43LTEuNi0xLjJjLTAuNS0wLjUtMC44LTEuMS0xLjEtMS43CgkJYy0wLjMtMC42LTAuNC0xLjMtMC40LTIuMWMwLTAuNywwLjEtMS40LDAuNC0yLjFjMC4zLTAuNywwLjctMS4yLDEuMS0xLjdjMC41LTAuNSwxLTAuOSwxLjctMS4yYzAuNi0wLjMsMS4zLTAuNCwxLjktMC40CgkJYzAuNywwLDEuMywwLjEsMiwwLjRjMC42LDAuMywxLjIsMC43LDEuNywxLjJjMC41LDAuNSwwLjksMS4xLDEuMiwxLjdDNDEyLjIsNDEuNyw0MTIuMyw0Mi40LDQxMi4zLDQzLjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNDQ5LjgsOTEuN2MtMS40LDEuNS0yLjksMi44LTQuMiwzLjhzLTIuOCwxLjktNC4yLDIuN2MtMS40LDAuNy0yLjksMS4yLTQuNSwxLjZzLTMuMywwLjUtNS4xLDAuNQoJCWMtMi41LDAtNC43LTAuNC02LjYtMS4ycy0zLjYtMi01LTMuNXMtMi40LTMuNC0zLjEtNS41Yy0wLjctMi4yLTEuMS00LjYtMS4xLTcuMmMwLTIuMiwwLjItNC40LDAuNy02LjZjMC41LTIuMiwxLjEtNC4zLDItNi4zCgkJYzAuOS0yLDItMy44LDMuMy01LjVjMS4zLTEuNywyLjgtMy4yLDQuNC00LjRzMy41LTIuMiw1LjUtMi45YzItMC43LDQuMS0xLjEsNi40LTEuMWMyLjIsMCw0LjEsMC4zLDUuNywwLjkKCQljMS42LDAuNiwyLjksMS40LDMuOSwyLjRjMSwxLDEuOCwyLDIuMywzLjJjMC41LDEuMiwwLjcsMi4zLDAuNywzLjNjMCwxLjktMC40LDMuNi0xLjEsNS4yYy0wLjgsMS42LTIuMiwzLTQuMiw0LjIKCQljLTIsMS4zLTQuOCwyLjQtOC40LDMuM2MtMy42LDAuOS04LjIsMS43LTEzLjgsMi4zYzAsMC4zLDAsMC42LDAsMC45czAsMC42LDAsMC45YzAsMy44LDAuOCw2LjcsMi41LDguN2MxLjcsMiw0LjIsMyw3LjUsMwoJCWMxLjQsMCwyLjYtMC4xLDMuNi0wLjRzMi0wLjYsMi44LTFjMC44LTAuNCwxLjYtMC45LDIuMi0xLjRjMC42LTAuNSwxLjItMC45LDEuNy0xLjRjMC41LTAuNCwxLTAuOCwxLjUtMWMwLjUtMC4zLDAuOS0wLjQsMS40LTAuNAoJCWMwLjUsMCwxLDAuMiwxLjQsMC43TDQ0OS44LDkxLjd6IE00MzcuOCw2MS41Yy0xLjgsMC0zLjQsMC40LTQuOSwxLjFjLTEuNSwwLjctMi44LDEuOC00LDNjLTEuMiwxLjMtMi4yLDIuOC0zLDQuNQoJCWMtMC44LDEuNy0xLjUsMy42LTEuOSw1LjZjNC40LTAuNSw3LjktMS4yLDEwLjUtMS44YzIuNi0wLjcsNC43LTEuNCw2LjEtMi4zYzEuNC0wLjgsMi40LTEuNywyLjgtMi42YzAuNS0wLjksMC43LTEuOSwwLjctMi45CgkJYzAtMC41LTAuMS0xLTAuMy0xLjZjLTAuMi0wLjYtMC42LTEuMS0xLjEtMS41Yy0wLjUtMC41LTEuMS0wLjgtMS45LTEuMUM0MzkuOSw2MS42LDQzOSw2MS41LDQzNy44LDYxLjV6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNTE2LjMsNTYuNmwtMTguMSw0My4xaC01LjdjLTAuNywwLTEuMS0wLjUtMS4zLTEuNEw0ODYsNjljLTAuMS0wLjUtMC4xLTAuOS0wLjEtMS40YzAtMC40LTAuMS0wLjktMC4yLTEuNAoJCWMtMC4zLDAuOS0wLjcsMS45LTEsMi44bC0xMi40LDI5LjJjLTAuNCwxLTEsMS40LTEuNywxLjRINDY1bC03LjYtNDMuMWg1LjdjMC42LDAsMSwwLjEsMS40LDAuNGMwLjMsMC4zLDAuNiwwLjcsMC43LDEuMWw0LDI3LjcKCQljMC4xLDEsMC4xLDIsMC4yLDIuOXMwLjEsMS45LDAuMSwyLjhjMC4zLTAuOSwwLjctMS44LDEtMi44YzAuNC0wLjksMC44LTEuOSwxLjEtMi45TDQ4My4zLDU4YzAuMS0wLjQsMC40LTAuOCwwLjgtMS4xCgkJYzAuNC0wLjMsMC44LTAuNCwxLjMtMC40aDMuMWMwLjUsMCwxLDAuMSwxLjMsMC40YzAuMywwLjMsMC41LDAuNiwwLjYsMS4xbDQuOCwyNy45YzAuMSwxLDAuMywxLjksMC40LDIuOXMwLjIsMS44LDAuMywyLjgKCQljMC4zLTAuOSwwLjUtMS44LDAuOC0yLjhzMC42LTEuOSwxLTIuOWwxMC45LTI3LjdjMC4xLTAuNSwwLjQtMC44LDAuOC0xLjFjMC40LTAuMywwLjktMC40LDEuMy0wLjRINTE2LjN6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNTUxLjMsOTEuN2MtMS40LDEuNS0yLjksMi44LTQuMiwzLjhjLTEuNCwxLjEtMi44LDEuOS00LjIsMi43Yy0xLjQsMC43LTIuOSwxLjItNC41LDEuNnMtMy4zLDAuNS01LjEsMC41CgkJYy0yLjUsMC00LjctMC40LTYuNi0xLjJzLTMuNi0yLTUtMy41Yy0xLjQtMS41LTIuNC0zLjQtMy4xLTUuNXMtMS4xLTQuNi0xLjEtNy4yYzAtMi4yLDAuMi00LjQsMC43LTYuNmMwLjUtMi4yLDEuMS00LjMsMi02LjMKCQljMC45LTIsMi0zLjgsMy4zLTUuNWMxLjMtMS43LDIuOC0zLjIsNC40LTQuNGMxLjctMS4yLDMuNS0yLjIsNS41LTIuOWMyLTAuNyw0LjEtMS4xLDYuNC0xLjFjMi4yLDAsNC4xLDAuMyw1LjcsMC45CgkJYzEuNiwwLjYsMi45LDEuNCwzLjksMi40YzEsMSwxLjgsMiwyLjMsMy4yYzAuNSwxLjIsMC43LDIuMywwLjcsMy4zYzAsMS45LTAuNCwzLjYtMS4xLDUuMmMtMC44LDEuNi0yLjIsMy00LjIsNC4yCgkJYy0yLDEuMy00LjgsMi40LTguNCwzLjNjLTMuNiwwLjktOC4yLDEuNy0xMy44LDIuM2MwLDAuMywwLDAuNiwwLDAuOWMwLDAuMywwLDAuNiwwLDAuOWMwLDMuOCwwLjgsNi43LDIuNSw4LjdjMS43LDIsNC4yLDMsNy41LDMKCQljMS40LDAsMi42LTAuMSwzLjYtMC40czItMC42LDIuOC0xYzAuOC0wLjQsMS42LTAuOSwyLjItMS40YzAuNi0wLjUsMS4yLTAuOSwxLjctMS40YzAuNS0wLjQsMS0wLjgsMS41LTFzMC45LTAuNCwxLjQtMC40CgkJYzAuNSwwLDEsMC4yLDEuNCwwLjdMNTUxLjMsOTEuN3ogTTUzOS40LDYxLjVjLTEuOCwwLTMuNCwwLjQtNC45LDEuMWMtMS41LDAuNy0yLjgsMS44LTQsM2MtMS4yLDEuMy0yLjIsMi44LTMsNC41CgkJYy0wLjgsMS43LTEuNSwzLjYtMS45LDUuNmM0LjQtMC41LDcuOS0xLjIsMTAuNS0xLjhjMi42LTAuNyw0LjctMS40LDYuMS0yLjNjMS40LTAuOCwyLjQtMS43LDIuOC0yLjZzMC43LTEuOSwwLjctMi45CgkJYzAtMC41LTAuMS0xLTAuMy0xLjZjLTAuMi0wLjYtMC42LTEuMS0xLjEtMS41cy0xLjEtMC44LTEuOS0xLjFTNTQwLjUsNjEuNSw1MzkuNCw2MS41eiIvPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTU2OC45LDY4LjZjMS4xLTIuNCwyLjQtNC41LDMuNy02LjNjMS4zLTEuOCwyLjctMy4yLDQuMS00LjJjMS40LTEsMi45LTEuNiw0LjUtMS44YzEuNS0wLjIsMy4xLDAsNC43LDAuNwoJCWwtMS40LDcuM2MtMy43LTEuNS02LjktMC45LTkuOCwxLjZjLTIuOCwyLjYtNS4xLDcuMi02LjksMTMuOGwtMi40LDE5LjloLTcuNGw1LjItNDMuMWgzLjdjMS43LDAsMi42LDAuOSwyLjYsMi42TDU2OC45LDY4LjZ6Ii8+CjwvZz4KPC9zdmc+Cg=="
+                                    width="600" style="display: block; color: #ffffff; font-size: 16px; margin: 0 auto;"
+                                    border="0">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" class="logo" bgcolor="transparent"
+                            style="height: 1px; padding: 2px">
+
+                    </tr>
+                </table>
+                <!--[if (gte mso 9)|(IE)]>
+                  </td>
+                  </tr>
+                  </table>
+                  <![endif]-->
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#E0E0E0" align="center" style="padding: 0">
+                <!--[if (gte mso 9)|(IE)]>
+                      <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                      <tr>
+                      <td align="center" valign="top" width="600">
+                      <![endif]-->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="responsive-table"
+                    style="box-shadow: -1px 6px 23px -4px rgba(0,0,0,0.36); width: 650px; border-radius: 20px;">
+                    <tr>
+                        <td height="40" width="40" bgcolor="#f6f6f6"></td>
+                        <td height="40" width="570" bgcolor="#f6f6f6"></td>
+                        <td height="40" width="40" bgcolor="#f6f6f6"></td>
+                    </tr>
+                    <tr bgcolor="#ffffff">
+                        <td width="40" bgcolor="#f6f6f6"></td>
+                        <td>
+                            <!-- COPY -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="450" align="left" class="padding-copy"
+                                        style="font-size: 24px; padding: 0px; font-weight: bold; color:#223140;">
+                                        <span width="450" style="padding: 0 0 0 20px;">Hello,
+                                            <br>
+                                            <span
+                                                style="margin:0; line-height: .875; font-size: 60px; padding:0 0 0 20px;">
+                                                [User Name]!</span>
+                                        </span>
+                                    </td>
+                                    <td width="100" align="right">
+                                        <div class="circle" style="margin: 0;"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                            <td></td>
+                                            <td colspan="3" align="left" class="padding-copy"
+                                                style="color:#223140; font-weight: 100;">
+                                                <h2 width="100%"
+                                                    style="color:#223040; font-size: 16px; font-weight: 300;">
+                                                    Please use this code to access your account!</h2>
+                                            </td>
+                                        </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td>
+                                                       <span style="text-align: center; font-weight: 900; font-size: 75px; display: block; color: #223040;">000-000</span>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="left" class="padding-copy"
+                                        style="font-size: 24px; padding: 0px; font-weight: bold;"> 
+                                                                                <!--[if mso]>
+                                            <v:arc style=‘width:150px;height:150px’
+                                            startangle=“0” endangle=“90"
+                                            strokecolor=“#F4901E" strokeweight=“150px”/>
+                                            <![endif]-->
+                                        <!--[if !mso]> <!-->
+                                        <span>    
+                                            <div class="circle-bottom" style="margin: 0;             width: 150px;
+                                            height: 150px;
+                                            border-radius: 0 150px 0 0;
+                                            color: #ffffff;
+                                            line-height: 100px;
+                                            text-align: center;
+                                            background: #F4901E;
+                                            font-weight: bold;"></div>
+                                        </span>
+                                     <!-- <![endif]-->
+                                    </td>
+                                    <td width="16"></td>
+                                    <td width="" align="left" class="padding-copy"
+                                        style="font-size: 24px; padding: 0px; font-weight: bold; color:#223140;">
+                                        <span style="color:#D75555;">Thanks,</span>
+                                        <span style="margin:0; line-height: .875; font-size: 50px; font-weight: 300;">
+                                            <span style="font-weight: 900;">atlas</span>viewer</span>
+                                        </span>
+                                    </td>
+                                    <td width="100">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="40" bgcolor="#f6f6f6"></td>
+                    </tr>
+                    <tr>
+                        <td height="40" bgcolor="#f6f6f6"></td>
+                        <td height="40" bgcolor="#f6f6f6"></td>
+                        <td height="40" bgcolor="#f6f6f6"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
